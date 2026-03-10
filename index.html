@@ -94,6 +94,7 @@
       max-width: 1440px;
       margin: 0 auto;
       border-radius: 16px;
+      position: relative;
     }
     .nav-logo { width: 32px; height: 32px; flex-shrink: 0; }
     .nav-logo img { width: 100%; height: 100%; object-fit: contain; }
@@ -1030,6 +1031,256 @@
       line-height: 48px;
       letter-spacing: -0.02em;
     }
+
+    /* ============================================
+       HAMBURGER TOGGLE BUTTON
+       ============================================ */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1.5px solid var(--stroke2);
+      border-radius: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ============================================
+       MAX-WIDTH: 1280px – Large Desktop
+       ============================================ */
+    @media (max-width: 1280px) {
+      .navbar         { padding: 20px 60px; }
+      .social-proof   { padding: 60px 60px; }
+      .our-story      { padding: 40px 60px 80px; }
+      .why-choose     { padding: 80px 60px; }
+      .services       { padding: 80px 60px; }
+      .our-approach   { padding: 80px 60px; }
+      .harsh-reality  { padding: 80px 60px; }
+      .how-we-help    { padding: 80px 60px; }
+      .contact-section{ padding: 80px 60px; }
+      .footer         { padding: 80px 48px 40px; }
+      .float-card-left  { left: 10px; }
+      .float-card-right { right: 10px; }
+      .service-card { width: calc(50% - 12px); }
+      .pain-card    { width: calc(33.333% - 16px); }
+      .help-card    { width: calc(33.333% - 16px); }
+      .why-content  { flex: 0 0 460px; }
+      .why-visual   { flex: 0 0 460px; }
+      .approach-text{ flex: 0 0 460px; }
+    }
+
+    /* ============================================
+       MAX-WIDTH: 1100px
+       ============================================ */
+    @media (max-width: 1100px) {
+      .hero-title { font-size: 58px; line-height: 66px; }
+      .large-title, .section-title-56, .approach-title, .title-center { font-size: 46px; line-height: 54px; }
+      .float-card-left  { display: none; }
+      .float-card-right { display: none; }
+      .why-orbit-img { width: 460px; height: 400px; left: -90px; }
+    }
+
+    /* ============================================
+       MAX-WIDTH: 1024px – Tablet Landscape
+       ============================================ */
+    @media (max-width: 1024px) {
+      .navbar       { padding: 18px 32px; }
+      .social-proof { padding: 48px 32px; }
+      .our-story    { padding: 48px 32px 72px; }
+      .hero         { gap: 56px; padding-bottom: 100px; }
+      .hero-title   { font-size: 50px; line-height: 58px; }
+
+      /* Why choose – stack */
+      .why-choose  { flex-direction: column; gap: 48px; padding: 72px 32px; align-items: center; }
+      .why-content { flex: none; width: 100%; max-width: 680px; }
+      .why-visual  { flex: none; position: relative; width: 260px; height: 260px;
+                     display: flex; align-items: center; justify-content: center; overflow: visible; }
+      .why-orbit-img   { display: none; }
+      .why-logo-circle { position: static; transform: none; width: 220px; height: 220px; }
+      .why-logo-circle img { width: 120px; height: 120px; }
+      .bullet-card { display: none; }
+
+      /* Services – 2 columns */
+      .services       { padding: 72px 32px; gap: 40px; }
+      .section-title-56 { font-size: 40px; line-height: 48px; }
+      .service-card   { width: calc(50% - 12px); }
+      .cards-grid-2   { max-width: 100%; }
+
+      /* Approach – stack */
+      .our-approach  { flex-direction: column; gap: 48px; padding: 72px 32px; }
+      .approach-images { width: 100% !important; height: 280px !important;
+                         display: flex; justify-content: center; position: relative; }
+      .approach-img1 { width: 180px; height: 260px; }
+      .approach-img2 { top: 40px; left: auto; right: calc(50% - 200px); width: 180px; height: 235px; }
+      .approach-text { flex: none; width: 100%; }
+      .approach-title { font-size: 40px; line-height: 48px; }
+
+      /* Pain – 2 columns */
+      .harsh-reality { padding: 72px 32px; gap: 40px; }
+      .cards-grid-3  { justify-content: center; }
+      .pain-card     { width: calc(50% - 12px); }
+      .title-center  { font-size: 40px; line-height: 48px; }
+      .large-title   { font-size: 40px; line-height: 48px; }
+      .section-header[style*="height:238px"] { height: auto !important; }
+
+      /* Help – 2 columns */
+      .how-we-help { padding: 72px 32px; gap: 40px; }
+      .help-card   { width: calc(50% - 12px); }
+
+      /* Booking – stack */
+      .contact-section { padding: 72px 32px; }
+      .booking-widget  { flex-direction: column; }
+      .booking-left    { width: 100%; border-right: none; border-bottom: 1px solid var(--stroke2); }
+
+      /* Footer – stack brand & links */
+      .footer       { padding: 64px 32px 32px; }
+      .footer-top   { flex-direction: column; gap: 36px; }
+      .footer-brand { max-width: 100%; }
+      .footer-links { flex-wrap: wrap; gap: 32px; }
+      .footer-col   { min-width: 180px; }
+    }
+
+    /* ============================================
+       MAX-WIDTH: 768px – Tablet Portrait
+       ============================================ */
+    @media (max-width: 768px) {
+      /* Navbar hamburger */
+      .navbar     { padding: 14px 20px; }
+      .nav-toggle { display: flex; }
+      .nav-links  {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px 20px 28px;
+        border-bottom: 1px solid var(--stroke2);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-pages { flex-direction: column; gap: 14px; font-size: 17px; }
+
+      /* Hero */
+      .hero       { gap: 40px; padding-bottom: 72px; }
+      .hero-title { font-size: 36px; line-height: 44px; }
+      .hero-content { padding: 0 8px; gap: 20px; }
+
+      /* Stats */
+      .social-proof   { padding: 40px 20px; gap: 20px; }
+      .social-proof h2 { font-size: 18px; line-height: 26px; white-space: normal; }
+      .stats-grid     { gap: 12px; }
+      .stat-card      { min-width: calc(50% - 6px); height: auto; padding: 20px 14px; }
+      .stat-card .stat-num   { font-size: 24px; line-height: 32px; }
+      .stat-card .stat-label { font-size: 14px; line-height: 22px; }
+
+      /* Story */
+      .our-story  { padding: 40px 20px 56px; gap: 24px; }
+      .title-40   { font-size: 24px; line-height: 32px; }
+      .section-body { font-size: 15px; line-height: 23px; }
+
+      /* Why choose */
+      .why-choose  { padding: 48px 20px; gap: 32px; }
+      .large-title { font-size: 30px; line-height: 38px; }
+      .body-white  { font-size: 15px; line-height: 23px; }
+      .why-logo-circle     { width: 180px; height: 180px; }
+      .why-logo-circle img { width: 100px; height: 100px; }
+
+      /* Services */
+      .services       { padding: 48px 20px; gap: 32px; }
+      .section-title-56 { font-size: 30px; line-height: 38px; }
+      .service-card   { width: 100%; }
+      .section-sub    { font-size: 15px; }
+
+      /* Approach */
+      .our-approach  { padding: 48px 20px; gap: 32px; }
+      .approach-title { font-size: 30px; line-height: 38px; }
+      .approach-images { height: 230px !important; }
+      .approach-img1 { width: 145px; height: 210px; }
+      .approach-img2 { width: 145px; height: 190px; right: calc(50% - 170px); }
+      .approach-body    { font-size: 15px; line-height: 23px; }
+      .approach-heading { font-size: 19px; line-height: 26px; }
+      .approach-text { gap: 32px; }
+
+      /* Pain */
+      .harsh-reality { padding: 48px 20px; gap: 32px; }
+      .pain-card     { width: 100%; }
+      .title-center  { font-size: 30px; line-height: 38px; }
+
+      /* Help */
+      .how-we-help { padding: 48px 20px; gap: 32px; }
+      .help-card   { width: 100%; }
+
+      /* Contact */
+      .contact-section { padding: 48px 20px; }
+      .booking-left    { padding: 22px 16px; }
+      .booking-right   { padding: 22px 16px; }
+      .booking-options { gap: 8px; }
+
+      /* Footer */
+      .footer        { padding: 48px 20px 24px; }
+      .footer-links  { flex-direction: column; gap: 20px; }
+      .footer-col    { min-width: unset; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; align-items: center; }
+      .footer-bottom-links { gap: 20px; }
+      .footer-desc   { font-size: 14px; line-height: 22px; }
+
+      /* Misc */
+      .section-title  { font-size: 26px; line-height: 34px; }
+      .contact-info   { flex-direction: column; gap: 12px; }
+      .section-header[style*="height:238px"] { height: auto !important; }
+    }
+
+    /* ============================================
+       MAX-WIDTH: 480px – Mobile
+       ============================================ */
+    @media (max-width: 480px) {
+      .hero-title   { font-size: 28px; line-height: 36px; }
+      .badge-text   { font-size: 13px; line-height: 20px; }
+      .btn-lg       { font-size: 14px; padding: 13px 20px; }
+      .btn-sm       { font-size: 13px; padding: 11px 16px; }
+
+      .stat-card          { min-width: 100%; }
+      .stat-card .stat-num { font-size: 20px; line-height: 28px; }
+
+      .large-title, .section-title-56, .title-center, .approach-title { font-size: 26px; line-height: 34px; }
+      .title-40 { font-size: 20px; line-height: 28px; }
+
+      .approach-images { display: none !important; }
+      .our-approach    { align-items: flex-start; }
+
+      .booking-title       { font-size: 17px; line-height: 24px; }
+      .booking-right-title { font-size: 14px; }
+      /* Time slots: 2 cols on tiny screens */
+      .booking-right div[style*="grid-template-columns:repeat(4"] {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .footer-bottom-links { flex-direction: column; gap: 10px; align-items: center; }
+      .section-header[style*="height:238px"] { height: auto !important; }
+    }
   </style>
 </head>
 <body>
@@ -1050,6 +1301,9 @@
       </div>
       <button class="btn btn-sm">Book a Free Consultation</button>
     </div>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   
@@ -1195,12 +1449,12 @@
   <div class="why-visual">
     
     <img class="why-orbit-img"
-      src="/asset/bded9709-8e88-4ab4-aab8-9785d3013e97.png"
+      src="/asset/bded9709-8e88-4ab4-aab8-9785d3013e97.svg"
       alt="FINTRIXX orbit" />
 
     
     <div class="why-logo-circle">
-      <img src="/asset/4c915eb7-b427-43d2-9234-c15dc12f9d06.png" alt="FINTRIXX" />
+      <img src="/asset/4c915eb7-b427-43d2-9234-c15dc12f9d06.svg" alt="FINTRIXX" />
     </div>
 
     
@@ -1770,5 +2024,23 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a, button').forEach(function (el) {
+      el.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
